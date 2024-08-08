@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaša Korpa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0F7FA;
+            color: #004D40;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .product, .cart-item, .total, form {
+            background-color: #FFFFFF;
+            border: 1px solid #004D40;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header-image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header-image {
+            width: 50%;
+            height: auto;
+        }
+
+        .cart-item, .total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #004D40;
+        }
+
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .price {
+            color: #00796B;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: calc(50% - 20px);
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #004D40;
+            border-radius: 5px;
+        }
+
+        button {
+            width: calc(50% - 20px);
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #004D40;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: auto;
+        }
+
+        button:hover {
+            background-color: #00796B;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        form h2, form h3 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .cart-icon img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .cart-container.active {
+            transform: translateX(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .close-btn span {
+            font-size: 1.5em;
+            color: #004D40;
+        }  .navbar-links{
+            text-align: center;
+            font-size: xx-large;    
+            font-family:'Times New Roman', Times, serif;
+            color:antiquewhite ;
+            text-decoration: none;
+        }
+        .navbar-links > a, a:hover, a:focus, a:active {
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+    <script>
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.classList.toggle('active');
+        }
+
+        function toggleCardForm() {
+            const paymentMethod = document.getElementById("payment-method").value;
+            const cardForm = document.getElementById("card-form");
+            if (paymentMethod === "card") {
+                cardForm.style.display = "block";
+            } else {
+                cardForm.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar-links">
+        <a href="eco shop.html">O nama</a>
+        <a href="cene.html.html">Proizvodi</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="korpa.html">Korpa</a> 
+    </div>
+    <div class="login-container container">
+        <form id="login-form">
+            <h2>Prijava</h2>
+            <label for="username">Korisničko ime:</label>
+            <input type="text" id="username" name="username" required class="full-width"><br>
+            <label for="password">Lozinka:</label>
+            <input type="password" id="password" name="password" required class="full-width"><br>
+            <button type="submit" class="full-width">Prijavi se</button>
+        </form>
+    </div>
+
+    <div class="cart-icon" onclick="toggleCart()">
+        <img src="korpa.png" alt="Korpa">
+    </div>
+
+    <div class="cart-container" id="cart-container">
+        <div class="close-btn" onclick="toggleCart()">
+            <span>&times;</span>
+        </div>
+        <h2>Vaša Korpa</h2>
+        <div class="cart-item">
+            <span>Četka</span>
+            <span class="price">$10</span>
+        </div>
+        <div class="cart-item">
+            <span>Vata</span>
+            <span class="price">$15</span>
+        </div>
+        <div class="cart-item">
+            <span>Eco šolja</span>
+            <span class="price">$20</span>
+        </div>
+        <div class="cart-item">
+            <span>Eco torba</span>
+            <span class="price">$25</span>
+        </div>
+        <div class="total">
+            <span>Ukupno:</span>
+            <span class="price">$70</span>
+        </div>
+        <form class="container">
+            <h2>Podaci o kupcu</h2>
+            <label for="fname">Ime:</label>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Prezime:</label>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="address">Adresa:</label>
+            <input type="text" id="address" name="address" required><br>
+            <label for="house-number">Broj kuće:</label>
+            <input type="text" id="house-number" name="house-number" required><br>
+            <label for="city">Grad:</label>
+            <input type="text" id="city" name="city" required><br>
+            <label for="postal-code">Poštanski broj:</label>
+            <input type="text" id="postal-code" name="postal-code" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="phone">Broj telefona:</label>
+            <input type="tel" id="phone" name="phone" required><br>
+            <label for="payment-method">Način plaćanja:</label>
+            <select id="payment-method" name="payment-method" onchange="toggleCardForm()" required>
+                <option value="card">Platnom karticom</option>
+                <option value="cash">Pouzećem</option>
+                <option value="invoice">Uplatnicom</option>
+            </select><br>
+            <div id="card-form" style="display:none;" class="full-width">
+                <h3>Podaci o platnoj kartici</h3>
+                <label for="card-number">Broj kartice:</label>
+                <input type="text" id="card-number" name="card-number" class="full-width"><br>
+                <label for="expiry-date">Datum isteka (MM/YY):</label>
+                <input type="text" id="expiry-date" name="expiry-date" class="full-width"><br>
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" class="full-width"><br>
+            </div>
+            <button type="submit" class="full-width">Potvrdi narudžbinu</button>
+        </form>
+    </div>
+</body>
+</html>

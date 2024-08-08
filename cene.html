@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO SHOP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .navbar-links {
+            text-align: center;
+            font-size: xx-large;    
+            font-family: 'Times New Roman', Times, serif;
+            color: antiquewhite;
+            text-decoration: none;
+        }
+
+        .navbar-links > a, a:hover, a:focus, a:active {
+            text-decoration: none;
+            color: white;
+        }
+
+        .naslov {
+            text-align: center;
+            color: #76D7C4;
+            border-bottom: white;
+        }
+
+        .panel {
+            color: white;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            box-shadow: 0 0px 0px 5px #251b19;
+        }
+
+        .container {
+            width: 80%;
+            margin: 2rem auto;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .gallery__item {
+            flex: 1 1 calc(33% - 2rem);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .gallery__img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .proizvod__info {
+            text-align: center;
+            color: #138D75; 
+            padding: 10px;
+            font-size: medium;
+        }
+
+        .dugme__kupi {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 16px;
+            background-color: #138D75;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>  
+<body style="background-color:#D4EFDF;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Eco shop</a>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Pretraži" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Pretraži</button>
+            </form>
+        </div>
+    </nav> <div class="navbar-links">
+        <a href="eco shop.html">O nama</a>
+        <a href="cene.html.html">Proizvodi</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="korpa.html">Korpa</a> 
+    </div>
+
+   
+    <div class="Naslov">
+        <h1>Trenutno dostupni proizvodi</h1>
+
+        <div class="container">
+            <div class="gallery">
+                <div class="gallery__item">
+                    <img src="brush.jpg" alt="Cetka" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Cetka</p>
+                        <p>Cena: $10</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Cetka', 10)">Dodaj u korpu</button>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="cotton.jpg" alt="vata" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Vata</p>
+                        <p>Cena: $15</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Vata', 15)">Dodaj u korpu</button>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="eco solja.jpg" alt="solja" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Eco solja</p>
+                        <p>Cena: $20</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Eco solja', 20)">Dodaj u korpu</button>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="eco torba.jpg" alt="Torba" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Eco torba</p>
+                        <p>Cena: $25</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Eco torba', 25)">Dodaj u korpu</button>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="toothbrush.jpg" alt="cetkica" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Cetkica za zube</p>
+                        <p>Cena: $8</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Cetkica za zube', 8)">Dodaj u korpu</button>
+                    </div>
+                </div>
+                <div class="gallery__item">
+                    <img src="vreće.jpg" alt="vrece" class="gallery__img">
+                    <div class="proizvod__info">
+                        <p>Vrece za voce i povrce</p>
+                        <p>Cena: $12</p>
+                        <button class="dugme__kupi" onclick="dodajUKorpu('Vrece za voce i povrce', 12)">Dodaj u korpu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function dodajUKorpu(naziv, cena) {
+            alert('Proizvod ' + naziv + ' je dodat u korpu sa cenom $' + cena + '.');
+            // Ovde bi dodao logiku za stvarno dodavanje proizvoda u korpu
+        }
+    </script>
+
+</body>
+</html>
+
